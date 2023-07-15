@@ -10,7 +10,7 @@ public class Transferencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime dataTranferencia;
+    private LocalDateTime dataTransferencia;
 
     private Double valor;
 
@@ -33,12 +33,12 @@ public class Transferencia {
         this.id = id;
     }
 
-    public LocalDateTime getDataTranferencia() {
-        return dataTranferencia;
+    public LocalDateTime getDataTransferencia() {
+        return dataTransferencia;
     }
 
-    public void setDataTranferencia(LocalDateTime dataTranferencia) {
-        this.dataTranferencia = dataTranferencia;
+    public void setDataTransferencia(LocalDateTime dataTransferencia) {
+        this.dataTransferencia = dataTransferencia;
     }
 
     public Double getValor() {
