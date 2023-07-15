@@ -1,5 +1,7 @@
 package br.com.banco.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,11 +10,13 @@ public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long idConta;
 
     private String nomeResponsavel;
 
     @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Transferencia> transferencias;
 
     public Conta() {

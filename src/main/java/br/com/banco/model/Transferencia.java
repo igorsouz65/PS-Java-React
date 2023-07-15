@@ -1,5 +1,7 @@
 package br.com.banco.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -8,6 +10,7 @@ public class Transferencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     private LocalDateTime dataTransferencia;
@@ -20,6 +23,7 @@ public class Transferencia {
 
     @ManyToOne
     @JoinColumn(name = "conta_id")
+    @JsonIgnore
     private Conta conta;
 
     public Transferencia() {
