@@ -27,7 +27,10 @@ public class TransferenciaEndpoint {
     @GetMapping(path = "transferencias/{dataInicio}/{dataFim}")
     public ResponseEntity<?> findTransferenciaByData(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicio,
                                                      @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim){
-        return new ResponseEntity<>(transferenciaDAO.findByDataTransferenciaBetween(dataInicio, dataFim), HttpStatus.OK);
+        return new ResponseEntity<>(transferenciaDAO.findByDataTransferenciaBetween(
+               dataInicio,
+                dataFim),
+                HttpStatus.OK);
     }
 
     @GetMapping(path = "transferencias/{nomeOperador}")
@@ -39,7 +42,11 @@ public class TransferenciaEndpoint {
     public ResponseEntity<?> findByNomeOperadorAndDataTransferencia(@PathVariable String nomeOperador,
                                                                     @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicio,
                                                                     @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim){
-        return new ResponseEntity<>(transferenciaDAO.findByNomeOperadorTransacaoIgnoreCaseContainingAndDataTransferenciaBetween(nomeOperador, dataInicio, dataFim), HttpStatus.OK);
+        return new ResponseEntity<>(transferenciaDAO.findByNomeOperadorTransacaoIgnoreCaseContainingAndDataTransferenciaBetween(
+                nomeOperador,
+                dataInicio,
+                dataFim),
+                HttpStatus.OK);
     }
 
 }
